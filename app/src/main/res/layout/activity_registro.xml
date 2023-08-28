@@ -21,11 +21,13 @@
     <EditText
         android:id="@+id/etUsuarioRegistro"
         android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:drawableLeft="@drawable/user"
+        android:layout_height="48dp"
+        android:drawableStart="@drawable/user"
         android:drawablePadding="8dp"
         android:hint="Usuario"
+        android:inputType="text"
         android:padding="8dp"
+        android:autofillHints="name"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -35,24 +37,24 @@
     <EditText
         android:id="@+id/etContraseñaRegistro"
         android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:drawableLeft="@drawable/pass"
+        android:layout_height="48dp"
+        android:drawableStart="@drawable/pass"
         android:drawablePadding="8dp"
-        android:textAlignment="gravity"
         android:hint="Contraseña"
         android:inputType="textPassword"
+        android:autofillHints="password"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etUsuarioRegistro"
-        app:layout_constraintVertical_bias="0.1" />
+        app:layout_constraintVertical_bias="0.05" />
 
     <CheckBox
         android:id="@+id/cbTerminos"
-        android:layout_width="wrap_content"
+        android:layout_width="320dp"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="20dp"
-        android:text="He leído y estoy de acurdo con los terminos y   condiciones"
+        android:text="He leído y estoy de acuerdo con los términos y   condiciones"
         app:layout_constraintBottom_toTopOf="@id/btnRegistrar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -69,7 +71,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etContraseñaRegistro"
-        app:layout_constraintVertical_bias="0.2" />
+        app:layout_constraintVertical_bias="0.5" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
