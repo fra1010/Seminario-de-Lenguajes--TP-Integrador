@@ -55,7 +55,7 @@
         android:layout_height="wrap_content"
         app:layout_constraintVertical_bias="0.2"
         android:layout_marginHorizontal="10dp"
-        android:text="Registrar usuario"
+        android:text="Registro usuario"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/btnLogin"
         app:layout_constraintStart_toStartOf="parent"
