@@ -7,6 +7,7 @@
         android:id="@+id/item_favoritos"
         android:title="@string/favoritos"
         android:background="@color/purple_200"
+        android:icon="@drawable/baseline_favorite_24"
         app:showAsAction="always"
 
         />
