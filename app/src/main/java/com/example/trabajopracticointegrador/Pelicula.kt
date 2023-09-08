@@ -4,6 +4,7 @@ import android.os.Parcel
 import android.os.Parcelable
 
 data class Pelicula(
+    val id: Int,
     val nombre: String?,
     val anio:String?,
     val director:String?,
@@ -15,6 +16,7 @@ data class Pelicula(
 
 ) : Parcelable {
     constructor(parcel: Parcel) : this(
+        parcel.readInt(),
         parcel.readString()!!,
         parcel.readString()!!,
         parcel.readString()!!,
@@ -25,6 +27,7 @@ data class Pelicula(
 
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
+        parcel.writeInt(id)
         parcel.writeString(nombre)
         parcel.writeString(anio)
         parcel.writeString(director)

@@ -5,12 +5,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import android.content.Context
 
 import androidx.appcompat.view.menu.ActionMenuItemView
 import androidx.recyclerview.widget.RecyclerView
 
 
-class PeliculaAdapter (private val peliculaLista:ArrayList<Pelicula>)
+class PeliculaAdapter (private val peliculaLista:MutableList<Pelicula>, private  val context: Context )
     : RecyclerView.Adapter<PeliculaAdapter.PeliculaViewHolder>(){
 
     var onItemClick: ((Pelicula) -> Unit)? = null
