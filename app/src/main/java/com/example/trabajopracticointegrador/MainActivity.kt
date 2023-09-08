@@ -6,19 +6,24 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.trabajopracticointegrador.Pelicula
 import com.example.trabajopracticointegrador.PeliculaAdapter
 import com.example.trabajopracticointegrador.R
+import  androidx.appcompat.widget.Toolbar
 
 
 
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.widget.Toast
+
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var recyclerView: RecyclerView
     private lateinit var peliculaList: ArrayList<Pelicula>
     private lateinit var peliculaAdapter: PeliculaAdapter
+    private lateinit var toolbar: Toolbar
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -26,6 +31,11 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         saludarUsuario()
+
+
+        toolbar= findViewById(R.id.toolbar)
+        setSupportActionBar(toolbar)
+        supportActionBar!!.title= resources.getString(R.string.toolbar_texto)
 
         recyclerView= findViewById(R.id.rvMain)
         recyclerView.setHasFixedSize(true)
@@ -53,6 +63,20 @@ class MainActivity : AppCompatActivity() {
         }
 
     }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu_main,menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId==R.id.item_favoritos){
+            val intentFavoritos= Intent(this, FavoritosActivity::class.java)
+            startActivity(intentFavoritos)
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
 
     private fun saludarUsuario() {
         var bundle:Bundle? = intent.extras

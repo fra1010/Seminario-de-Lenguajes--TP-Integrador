@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">Trabajo Practico Integrador</string>
+    <string name="toolbar_texto">Listado películas</string>
+    <string name="director">Director</string>
+    <string name="anio">Año</string>
+    <string name="favoritos">Favoritos</string>
+    <string name="genero">Genero</string>
+    <string name="sinopsis">SINOPSIS</string>
+    <string name="usuario">Usuario</string>
+    <string name="contrasenia">Contraseña</string>
+    <string name="tyc">He leído y estoy de acuerdo con los términos y   condiciones</string>
+    <string name="registrar_usuario">Registrar usuario</string>
 </resources>

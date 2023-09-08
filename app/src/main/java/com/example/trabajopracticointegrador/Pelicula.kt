@@ -10,6 +10,9 @@ data class Pelicula(
     val genero:String?,
     val foto:Int,
     val sinopsis:String?
+
+
+
 ) : Parcelable {
     constructor(parcel: Parcel) : this(
         parcel.readString()!!,
