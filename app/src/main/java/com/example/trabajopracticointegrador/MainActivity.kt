@@ -81,7 +81,7 @@ class MainActivity : AppCompatActivity() {
     private fun saludarUsuario() {
         var bundle:Bundle? = intent.extras
         if (bundle !=null){
-            var usuario= bundle?.getString("usuario")
+            var usuario= bundle?.getString(resources.getString(R.string.usuario))
             Toast.makeText(this, "Bienvenido/a $usuario", Toast.LENGTH_SHORT).show()
         }
     }

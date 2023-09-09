@@ -10,4 +10,9 @@
     <string name="contrasenia">Contraseña</string>
     <string name="tyc">He leído y estoy de acuerdo con los términos y   condiciones</string>
     <string name="registrar_usuario">Registrar usuario</string>
+    <string name="registro_usuario">Registro usuario</string>
+    <string name="iniciar_sesion">Iniciar sesión</string>
+    <string name="cb_recordar">Recordar usuario</string>
+    <string name="sp_credenciales">SP_CREDENCIALES</string>
+
 </resources>
