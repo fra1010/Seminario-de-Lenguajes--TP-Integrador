@@ -11,11 +11,11 @@ import android.widget.Toast
 
 class RegistroActivity : AppCompatActivity() {
 
-    lateinit var etUsuarioR: EditText
-    lateinit var etContraseniaR: EditText
-    lateinit var chTerminos: CheckBox
-    lateinit var btnRegistroR:Button
-    lateinit var cbRecordar: CheckBox
+    private lateinit var etUsuarioR: EditText
+    private lateinit var etContraseniaR: EditText
+    private lateinit var chTerminos: CheckBox
+    private lateinit var btnRegistroR:Button
+    private lateinit var cbRecordar: CheckBox
 
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {

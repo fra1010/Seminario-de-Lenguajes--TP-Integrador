@@ -1,52 +1,24 @@
 package com.example.trabajopracticointegrador
 
-import android.os.Parcel
 import android.os.Parcelable
+import androidx.room.ColumnInfo
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+import kotlinx.parcelize.IgnoredOnParcel
+import kotlinx.parcelize.Parcelize
 
+
+@Parcelize
+@Entity(tableName = "peliculas_table")
 data class Pelicula(
-    val id: Int,
-    val nombre: String?,
-    val anio:String?,
-    val director:String?,
-    val genero:String?,
-    val foto:Int,
-    val sinopsis:String?
-
-
+    @ColumnInfo(name= "nombre") val nombre: String?,
+    @ColumnInfo(name= "anio") val anio:String?,
+    @ColumnInfo(name="director") val director:String?,
+    @ColumnInfo(name="genero") val genero:String?,
+    @ColumnInfo(name="foto") val foto:Int,
+    @ColumnInfo(name="sinopsis") val sinopsis:String?
 
 ) : Parcelable {
-    constructor(parcel: Parcel) : this(
-        parcel.readInt(),
-        parcel.readString()!!,
-        parcel.readString()!!,
-        parcel.readString()!!,
-        parcel.readString()!!,
-        parcel.readInt(),
-        parcel.readString()!!
-    )
-
-
-    override fun writeToParcel(parcel: Parcel, flags: Int) {
-        parcel.writeInt(id)
-        parcel.writeString(nombre)
-        parcel.writeString(anio)
-        parcel.writeString(director)
-        parcel.writeString(genero)
-        parcel.writeInt(foto)
-        parcel.writeString(sinopsis)
-    }
-
-    override fun describeContents(): Int {
-        return 0
-    }
-
-    companion object CREATOR : Parcelable.Creator<Pelicula> {
-        override fun createFromParcel(parcel: Parcel): Pelicula {
-            return Pelicula(parcel)
-        }
-
-        override fun newArray(size: Int): Array<Pelicula?> {
-            return arrayOfNulls(size)
-        }
-    }
+    @IgnoredOnParcel
+    @PrimaryKey(autoGenerate = true) var id: Int = 0
 }
