@@ -5,25 +5,24 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 
-@Database(entities = [Pelicula::class], version = 1)
-abstract class AppDatabase:RoomDatabase() {
+@Database(entities = [Usuario::class], version = 1)
+abstract class UserDatabase:RoomDatabase() {
 
-    abstract fun peliculaDao(): PeliculaDao
+    abstract fun userDao(): UsuarioDao
     companion object{
 
-        private var INSTANCIA: AppDatabase?= null
-        fun getDatabase(contexto: Context): AppDatabase{
+        private var INSTANCIA: UserDatabase?= null
+        fun getDatabase(contexto: Context): UserDatabase{
             if(INSTANCIA== null){
                 synchronized(this){
                     INSTANCIA= Room.databaseBuilder(
-                    contexto, AppDatabase::class.java, "base_app_peliculas")
+                        contexto, UserDatabase::class.java, "base_app_usuario")
                         .allowMainThreadQueries()
                         .fallbackToDestructiveMigration()
                         .build()
                 }
             }
             return INSTANCIA!!
-
         }
     }
 

@@ -37,10 +37,14 @@ class RegistroActivity : AppCompatActivity() {
                 if (!chTerminos.isChecked){
                     Toast.makeText(this,"Debe aceptar los terminos y condiciones para continuar",Toast.LENGTH_SHORT).show()
                 }else{
+                    var nuevoUsuario= Usuario(usuario,contrasenia)
+                    UserDatabase.getDatabase(this).userDao().insertUsuario(nuevoUsuario)
+
                     if (cbRecordar.isChecked) {
                         var preferencias= getSharedPreferences(resources.getString((R.string.sp_credenciales)), MODE_PRIVATE)
                         preferencias.edit().putString(resources.getString(R.string.usuario), usuario).apply()
                         preferencias.edit().putString(resources.getString(R.string.contrasenia), contrasenia).apply()
+
                     }
 
                     val intentMain = Intent(this, MainActivity::class.java)

@@ -14,5 +14,8 @@
     <string name="iniciar_sesion">Iniciar sesión</string>
     <string name="cb_recordar">Recordar usuario</string>
     <string name="sp_credenciales">SP_CREDENCIALES</string>
+    <string name="busqueda">Buscar película</string>
+    <string name="agregar_pelicula">Agregar pelicula</string>
+    <string name="elegir_imagen">Elegir imagen</string>
 
 </resources>

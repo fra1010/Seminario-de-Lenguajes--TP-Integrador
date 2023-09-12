@@ -24,6 +24,7 @@ class MainActivity : AppCompatActivity() {
 
         saludarUsuario()
 
+
         toolbar= findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
         supportActionBar!!.title= resources.getString(R.string.toolbar_texto)
@@ -34,6 +35,8 @@ class MainActivity : AppCompatActivity() {
 
         peliculaAdapter = PeliculaAdapter(getPeliculas(),this)
         recyclerView.adapter =peliculaAdapter
+
+
 
         peliculaAdapter.onItemClick = {
             val intent = Intent(this, DescripcionActivity::class.java)

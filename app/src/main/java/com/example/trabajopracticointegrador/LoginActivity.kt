@@ -45,21 +45,53 @@ class LoginActivity : AppCompatActivity() {
 
 
         btnLogin.setOnClickListener {
+
                 var nUsuario= etUsuario.text.toString()
                 var pUsuario= etContrasenia.text.toString()
+                val baseDatos=UserDatabase.getDatabase(this)
 
                 if(nUsuario.isEmpty() || pUsuario.isEmpty()){
                     Toast.makeText(this,"Faltan datos", Toast.LENGTH_SHORT).show()
                 }else {
-                    if (cbRecordar.isChecked) {
-                        var preferenciasL= getSharedPreferences(resources.getString((R.string.sp_credenciales)), MODE_PRIVATE)
-                        preferenciasL.edit().putString(resources.getString(R.string.usuario), nUsuario).apply()
-                        preferenciasL.edit().putString(resources.getString(R.string.contrasenia), pUsuario).apply()
+                    val verificarUsuario = baseDatos.userDao().getNombreUsuario(nUsuario)
+                    if(verificarUsuario== null) {
+                        Toast.makeText(this, "Usuario no registrado", Toast.LENGTH_SHORT).show()
+
                     }
-                    starMainActivity(nUsuario)
+                    else{
+                        if(!verificarUsuario.usuarioContrasenia.equals(pUsuario)) {
+                            Toast.makeText(this, "Contraseña incorrecta", Toast.LENGTH_SHORT).show()
+                        }
+                        else{
+                            if (cbRecordar.isChecked) {
+                                var preferenciasL= getSharedPreferences(resources.getString((R.string.sp_credenciales)), MODE_PRIVATE)
+                                preferenciasL.edit().putString(resources.getString(R.string.usuario), nUsuario).apply()
+                                preferenciasL.edit().putString(resources.getString(R.string.contrasenia), pUsuario).apply()
+                            }
+                            starMainActivity(nUsuario)
+
+                        }
+                    }
+
+
+
                 }
         }
     }
+
+
+    private fun getUsuario(): MutableList<Usuario> {
+
+        var usuarioLista: MutableList<Usuario> = ArrayList()
+        var ubdd= UserDatabase.getDatabase(this)
+        usuarioLista.addAll(ubdd.userDao().getAllU())
+
+        usuarioLista.add(Usuario("asdf","1234"))
+
+        return usuarioLista
+    }
+
+
 
     private fun starMainActivity(usuarioGuardado: String) {
         val intentMain = Intent(this, MainActivity::class.java)
