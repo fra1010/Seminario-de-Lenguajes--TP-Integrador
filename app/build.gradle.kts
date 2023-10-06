@@ -12,6 +12,7 @@ android {
     defaultConfig {
         applicationId = "com.example.trabajopracticointegrador"
         minSdk = 24
+        //noinspection OldTargetApi
         targetSdk = 33
         versionCode = 1
         versionName = "1.0"
@@ -36,25 +37,29 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
-
-
-
 }
 
 dependencies {
 
+    //noinspection GradleDependency
     implementation("androidx.core:core-ktx:1.9.0")
     implementation("androidx.appcompat:appcompat:1.6.1")
+    //noinspection GradleDependency
     implementation("com.google.android.material:material:1.9.0")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
     implementation("androidx.recyclerview:recyclerview:1.3.1")
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
-
+    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4")
+    //noinspection GradleDependency
+    implementation ("androidx.lifecycle:lifecycle-runtime-ktx:2.5.1")
     val room_version = "2.4.2"
+    //noinspection GradleDependency
     implementation("androidx.room:room-runtime:$room_version")
+    //noinspection GradleDependency
     implementation("androidx.room:room-ktx:$room_version")
+    //noinspection KaptUsageInsteadOfKsp,GradleDependency
     kapt("androidx.room:room-compiler:$room_version")
 
 }
