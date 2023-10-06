@@ -4,22 +4,12 @@
 
 
 
-
     <item
-        android:id="@+id/action_search"
-        android:orderInCategory="100"
-        android:title="@string/busqueda"
-        android:icon="@drawable/baseline_search_24"
-        app:actionViewClass="androidx.appcompat.widget.SearchView"
-        app:showAsAction="ifRoom|collapseActionView" />
-
-    <item
-
         android:id="@+id/item_favoritos"
         android:title="@string/favoritos"
-        android:background="@color/purple_200"
         android:icon="@drawable/baseline_favorite_24"
         app:showAsAction="always"
+        android:background="@color/fondo_principal"
 
         />
 </menu>

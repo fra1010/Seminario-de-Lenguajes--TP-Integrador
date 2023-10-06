@@ -4,87 +4,142 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LoginActivity">
+    android:background="@color/fondo_principal"
+    tools:context=".LoginActivity"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    >
 
-    <ImageView
-        android:id="@+id/ivLogo"
-        android:layout_width="300dp"
-        android:layout_height="150dp"
-        android:src="@drawable/logo"
-        app:layout_constraintVertical_bias="0.10"
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraintLayout"
+                android:layout_width="match_parent"
+                android:layout_height="550dp"
+                android:background="@drawable/gradient_color_background">
+
+                <EditText
+                    android:id="@+id/etUsuario"
+                    android:layout_width="300dp"
+                    android:layout_height="48dp"
+                    android:autofillHints="name"
+                    android:drawablePadding="8dp"
+                    android:hint="@string/usuario"
+                    android:inputType="text"
+                    android:padding="8dp"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/white"
+                    android:gravity="center"
+                    android:background="@drawable/login_btn_background"
+                    app:layout_constraintBottom_toTopOf="@+id/etContraseña"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+
+                <EditText
+                    android:id="@+id/etContraseña"
+                    android:layout_width="300dp"
+                    android:layout_height="48dp"
+                    android:layout_marginBottom="3dp"
+                    android:autofillHints="password"
+
+                    android:drawablePadding="8dp"
+                    android:textColor="@color/white"
+                    android:hint="@string/contrasenia"
+                    android:inputType="textPassword"
+                    android:textColorHint="@color/white"
+                    android:background="@drawable/login_btn_background"
+                    android:gravity="center"
+                    app:layout_constraintBottom_toTopOf="@+id/cbLogin"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <CheckBox
+                    android:id="@+id/cbLogin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cb_recordar"
+                    android:textColor="@color/white"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
 
 
-    <EditText
-        android:id="@+id/etUsuario"
-        android:layout_width="300dp"
-        android:layout_height="48dp"
-        android:drawableStart="@drawable/user"
-        android:drawablePadding="8dp"
-        android:hint="@string/usuario"
-        android:autofillHints="name"
-        android:inputType="text"
-        android:padding="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ivLogo"
-        app:layout_constraintVertical_bias="0.2" />
+                <ImageView
+                    android:id="@+id/imageView3"
+                    android:layout_width="300dp"
+                    android:layout_height="300dp"
+                    android:layout_marginBottom="8dp"
+                    app:layout_constraintBottom_toTopOf="@+id/etContraseña"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/circle_gradient" />
 
-    <EditText
-        android:id="@+id/etContraseña"
-        android:layout_width="300dp"
-        android:layout_height="48dp"
-        android:drawableStart="@drawable/pass"
-        android:drawablePadding="8dp"
-        android:hint="@string/contrasenia"
-        android:autofillHints="password"
-        android:inputType="textPassword"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etUsuario"
-        app:layout_constraintVertical_bias="0.05"/>
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_margin="9dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/imageView3"
+                    app:layout_constraintEnd_toEndOf="@+id/imageView3"
+                    app:layout_constraintStart_toStartOf="@+id/imageView3"
+                    app:layout_constraintTop_toTopOf="@+id/imageView3"
+                    app:shapeAppearanceOverlay="@style/roundedImage"
+                    app:srcCompat="@drawable/logo"
+                    app:strokeWidth="1dp" />
 
-    <CheckBox
-        android:id="@+id/cbLogin"
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        android:text="@string/cb_recordar"
-        app:layout_constraintBottom_toTopOf="@+id/btnRegistro"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etContraseña" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <Button
-        android:id="@+id/btnRegistro"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintVertical_bias="0.2"
-        android:layout_marginHorizontal="10dp"
-        android:text="@string/registro_usuario"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/btnLogin"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etContraseña" />
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                android:background="@drawable/background_gradient_2">
 
-    <Button
-        android:id="@+id/btnLogin"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintVertical_bias="0.2"
-        android:text="@string/iniciar_sesion"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginHorizontal="10dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/btnRegistro"
-        app:layout_constraintTop_toBottomOf="@+id/etContraseña" />
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnRegistro"
+                    style="@android:style/Widget.Button"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="10dp"
+                    android:background="@drawable/login_btn_background"
+                    android:gravity="center"
+                    android:text="@string/registro_usuario"
+                    android:textColor="@color/white"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/btnLogin"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnLogin"
+                    style="@android:style/Widget.Button"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="10dp"
+                    android:background="@drawable/login_btn_background"
+                    android:gravity="center"
+                    android:text="@string/iniciar_sesion"
+                    android:textColor="@color/white"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/btnRegistro"
+                    app:layout_constraintTop_toTopOf="parent" />
 
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
+        </LinearLayout>
+    </ScrollView>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

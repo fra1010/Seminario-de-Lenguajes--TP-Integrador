@@ -32,6 +32,7 @@ class LoginActivity : AppCompatActivity() {
         var contraseniaGuardada= preferencias.getString(resources.getString(R.string.contrasenia), "")
 
 
+
         if(usuarioGuardado!= null && contraseniaGuardada != ""){
             starMainActivity(usuarioGuardado)
         }

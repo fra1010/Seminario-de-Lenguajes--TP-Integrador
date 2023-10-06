@@ -2,7 +2,7 @@
     <string name="app_name">Trabajo Practico Integrador</string>
     <string name="toolbar_texto">Películas</string>
     <string name="director">Director</string>
-    <string name="anio">Año</string>
+    <string name="anio">Lanzamiento</string>
     <string name="favoritos">Favoritos</string>
     <string name="genero">Genero</string>
     <string name="sinopsis">SINOPSIS</string>
@@ -17,5 +17,7 @@
     <string name="busqueda">Buscar película</string>
     <string name="agregar_pelicula">Agregar pelicula</string>
     <string name="elegir_imagen">Elegir imagen</string>
+    <string name="recaudacion">Recaudacion</string>
+    <string name="Rating">Rating</string>
 
 </resources>

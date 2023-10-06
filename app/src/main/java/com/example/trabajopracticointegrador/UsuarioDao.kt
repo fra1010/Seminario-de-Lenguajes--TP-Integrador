@@ -4,7 +4,6 @@ import androidx.room.Insert
 import androidx.room.Query
 
 
-
 @Dao
 interface UsuarioDao {
     @Query("select * from usuarios_table")

@@ -4,84 +4,140 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/fondo_principal"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
     tools:context=".LoginActivity">
 
-    <ImageView
-        android:id="@+id/ivLogo"
-        android:layout_width="300dp"
-        android:layout_height="150dp"
-        android:src="@drawable/logo"
-        app:layout_constraintVertical_bias="0.10"
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraintLayout2"
+                android:layout_width="match_parent"
+                android:layout_height="620dp"
+                android:background="@drawable/gradient_color_background">
+
+                <EditText
+                    android:id="@+id/etUsuarioRegistro"
+                    android:layout_width="300dp"
+                    android:layout_height="48dp"
+                    android:autofillHints="name"
+                    android:drawableStart="@drawable/baseline_email_24"
+                    android:drawablePadding="8dp"
+                    android:hint="@string/usuario"
+                    android:inputType="text"
+                    android:padding="8dp"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/white"
+                    app:layout_constraintBottom_toTopOf="@+id/etContraseñaRegistro"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/iv4" />
+
+                <EditText
+                    android:id="@+id/etContraseñaRegistro"
+                    android:layout_width="300dp"
+                    android:layout_height="48dp"
+                    android:layout_marginBottom="3dp"
+                    android:autofillHints="password"
+                    android:drawableStart="@drawable/baseline_lock_24"
+                    android:drawablePadding="8dp"
+                    android:hint="@string/contrasenia"
+                    android:inputType="textPassword"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/white"
+                    app:layout_constraintBottom_toTopOf="@+id/cbTerminos"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/etUsuarioRegistro" />
+
+                <CheckBox
+                    android:id="@+id/cbTerminos"
+                    android:layout_width="320dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="10dp"
+                    android:minLines="1"
+                    android:text="@string/tyc"
+                    android:textColor="@color/white"
+                    app:layout_constraintBottom_toTopOf="@id/cbRecordar"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/etContraseñaRegistro" />
+
+                <CheckBox
+                    android:id="@+id/cbRecordar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/cb_recordar"
+                    android:textColor="@color/white"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/cbTerminos" />
 
 
-    <EditText
-        android:id="@+id/etUsuarioRegistro"
-        android:layout_width="300dp"
-        android:layout_height="48dp"
-        android:drawableStart="@drawable/user"
-        android:drawablePadding="8dp"
-        android:hint="@string/usuario"
-        android:inputType="text"
-        android:padding="8dp"
-        android:autofillHints="name"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ivLogo"
-        app:layout_constraintVertical_bias="0.2" />
+                <ImageView
+                    android:id="@+id/iv4"
+                    android:layout_width="300dp"
+                    android:layout_height="300dp"
+                    android:layout_marginBottom="8dp"
+                    app:layout_constraintBottom_toTopOf="@+id/etUsuarioRegistro"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/circle_gradient" />
 
-    <EditText
-        android:id="@+id/etContraseñaRegistro"
-        android:layout_width="300dp"
-        android:layout_height="48dp"
-        android:drawableStart="@drawable/pass"
-        android:drawablePadding="8dp"
-        android:hint="@string/contrasenia"
-        android:inputType="textPassword"
-        android:autofillHints="password"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etUsuarioRegistro"
-        app:layout_constraintVertical_bias="0.05" />
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_margin="8dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/iv4"
+                    app:layout_constraintEnd_toEndOf="@+id/iv4"
+                    app:layout_constraintStart_toStartOf="@+id/iv4"
+                    app:layout_constraintTop_toTopOf="@+id/iv4"
+                    app:shapeAppearanceOverlay="@style/roundedImage"
+                    app:srcCompat="@drawable/logo"
+                    app:strokeWidth="1dp" />
 
-    <CheckBox
-        android:id="@+id/cbTerminos"
-        android:layout_width="320dp"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="10dp"
-        android:text="@string/tyc"
-        app:layout_constraintBottom_toTopOf="@id/cbRecordar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etContraseñaRegistro"
-        android:minLines="2"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <Button
-        android:id="@+id/btnRegistrar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="10dp"
-        android:text="@string/registrar_usuario"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cbRecordar"
-        app:layout_constraintVertical_bias="0.5" />
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraintlayout5"
+                android:layout_width="match_parent"
+                android:layout_height="90dp"
+                android:background="@drawable/background_gradient_2">
 
-    <CheckBox
-        android:id="@+id/cbRecordar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/cb_recordar"
-        app:layout_constraintBottom_toTopOf="@+id/btnRegistrar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cbTerminos" />
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnRegistrar"
+                    style="@android:style/Widget.Button"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="10dp"
+                    android:background="@drawable/login_btn_background"
+                    android:gravity="center"
+                    android:text="@string/registrar_usuario"
+                    android:textColor="@color/white"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </LinearLayout>
+    </ScrollView>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
