@@ -4,9 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".DescripcionActivity"
     android:background="@drawable/gradient_color_background"
-    >
+    tools:context=".DescripcionActivity">
 
     <TextView
         android:id="@+id/tvDescripcionNombre"
@@ -14,13 +13,13 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="3sp"
         android:gravity="center"
-        android:textSize="24sp"
-        android:textStyle="bold"
+        android:minLines="2"
         android:textAlignment="center"
         android:textColor="@color/white"
+        android:textSize="24sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:minLines="2"
         tools:text="The Dark Knight" />
 
 
@@ -29,48 +28,86 @@
         android:layout_width="200dp"
         android:layout_height="300dp"
         android:layout_marginHorizontal="5sp"
-        tools:background="@color/cardview_dark_background"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvDescripcionNombre"
-        app:layout_constraintStart_toStartOf="parent"/>
+        tools:background="@color/cardview_dark_background" />
+
+    <TextView
+        android:id="@+id/tvDescripcionDuracion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="8sp"
+        android:layout_marginVertical="5sp"
+        android:drawableStart="@drawable/baseline_access_time_24"
+        android:drawablePadding="5sp"
+        android:gravity="center"
+        android:textColor="@color/white"
+        app:layout_constraintHorizontal_bias="0.4"
+        android:textSize="17sp"
+        android:textStyle="bold"
+
+        app:layout_constraintBottom_toBottomOf="@+id/ivDescripcionPelicula"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/ivDescripcionPelicula"
+        app:layout_constraintTop_toBottomOf="@+id/tvRating"
+        tools:text="123" />
+
+    <TextView
+        android:id="@+id/tvDescripcionDuracionM"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="5sp"
+        android:text="min"
+        app:layout_constraintVertical_bias="0.49"
+        android:textColor="@color/white"
+        android:textSize="17sp"
+        app:layout_constraintBottom_toBottomOf="@+id/ivDescripcionPelicula"
+        app:layout_constraintStart_toEndOf="@+id/tvDescripcionDuracion"
+
+        app:layout_constraintTop_toBottomOf="@+id/tvRating" />
+
 
     <TextView
         android:id="@+id/tvañoTexto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/white"
-        android:layout_marginHorizontal="5sp"
+        android:layout_marginHorizontal="8sp"
         android:layout_marginVertical="17sp"
         android:text="@string/anio"
         android:textAlignment="center"
+        android:textColor="@color/white"
         android:textSize="17sp"
-        app:layout_constraintTop_toBottomOf="@+id/tvDescripcionNombre"
-        app:layout_constraintStart_toEndOf="@+id/ivDescripcionPelicula"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/ivDescripcionPelicula"
+        app:layout_constraintTop_toBottomOf="@+id/tvDescripcionNombre" />
 
     <TextView
         android:id="@+id/tvDescripcionAño"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginHorizontal="8sp"
+        android:layout_marginVertical="5sp"
         android:textColor="@color/white"
-        tools:text="1842"
         android:textSize="17sp"
         android:textStyle="bold"
-        android:layout_marginHorizontal="5sp"
-        android:layout_marginVertical="5sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/ivDescripcionPelicula"
         app:layout_constraintTop_toBottomOf="@+id/tvañoTexto"
-        app:layout_constraintStart_toEndOf="@+id/ivDescripcionPelicula"/>
+        tools:text="1842" />
+
     <TextView
         android:id="@+id/tvRecaudacionTexto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/white"
-        android:layout_marginHorizontal="5sp"
+        android:layout_marginHorizontal="8sp"
         android:layout_marginVertical="15sp"
         android:text="@string/recaudacion"
         android:textAlignment="center"
+        android:textColor="@color/white"
         android:textSize="17sp"
-        app:layout_constraintTop_toBottomOf="@+id/tvDescripcionAño"
-        app:layout_constraintStart_toEndOf="@+id/ivDescripcionPelicula"/>
-
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/ivDescripcionPelicula"
+        app:layout_constraintTop_toBottomOf="@+id/tvDescripcionAño" />
 
 
     <TextView
@@ -78,27 +115,31 @@
         android:id="@+id/tvRatingtexto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginHorizontal="8sp"
+        android:layout_marginVertical="15sp"
+
         android:text="@string/Rating"
         android:textColor="@color/white"
-        android:textStyle="bold"
         android:textSize="17sp"
-        android:layout_marginVertical="15sp"
-        android:layout_marginHorizontal="5sp"
-        app:layout_constraintTop_toBottomOf="@+id/tvRecaudacion"
-        app:layout_constraintStart_toEndOf="@+id/ivDescripcionPelicula"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/ivDescripcionPelicula"
+        app:layout_constraintTop_toBottomOf="@+id/tvRecaudacion" />
+
     <TextView
         android:id="@+id/tvRating"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/white"
-        android:layout_marginHorizontal="5sp"
+        android:layout_marginHorizontal="8sp"
         android:layout_marginVertical="5sp"
-        android:text="8"
+        android:drawableStart="@drawable/baseline_star_24"
+        tools:text="8"
         android:textAlignment="center"
+        android:textColor="@color/white"
         android:textSize="17sp"
-        app:layout_constraintTop_toBottomOf="@+id/tvRatingtexto"
-        app:layout_constraintStart_toEndOf="@+id/ivDescripcionPelicula"/>
-
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/ivDescripcionPelicula"
+        app:layout_constraintTop_toBottomOf="@+id/tvRatingtexto" />
 
 
     <TextView
@@ -106,51 +147,39 @@
         android:id="@+id/tvRecaudacion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:text="12,412,412"
-        android:textColor="@color/white"
-        android:textStyle="bold"
-        android:textSize="17sp"
-        android:layout_marginVertical="5sp"
         android:layout_marginHorizontal="5sp"
-        app:layout_constraintTop_toBottomOf="@+id/tvRecaudacionTexto"
-        app:layout_constraintStart_toEndOf="@+id/ivDescripcionPelicula"/>
-
-
-    <TextView
-        android:id="@+id/tvPeliculaSinopsisTexto"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="18sp"
+        android:layout_marginVertical="5sp"
+        android:drawableStart="@drawable/baseline_attach_money_24"
         android:textColor="@color/white"
-        android:text="@string/sinopsis"
+        android:textSize="17sp"
         android:textStyle="bold"
-        android:textAlignment="center"
-        android:layout_marginHorizontal="3sp"
-        android:layout_marginVertical="15sp"
-        app:layout_constraintTop_toBottomOf="@+id/ivDescripcionPelicula" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/ivDescripcionPelicula"
+        app:layout_constraintTop_toBottomOf="@+id/tvRecaudacionTexto"
+        tools:text="12,412,412" />
+
 
     <TextView
 
         android:id="@+id/tvDescripcionSinopsis"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="16sp"
-        android:textColor="@color/white"
-        android:textAlignment="center"
         android:layout_marginHorizontal="5sp"
-        android:layout_marginVertical="15sp"
-        tools:text="Con la ayuda del teniente James Gordon y el Fiscal de Distrito Harvey Dent, Batman se propone destruir la delincuencia organizada para el bien de Ciudad Gótica. El trío demuestra ser eficaz, pero pronto se ve presa de una creciente mente criminal: conocido como el Guasón, quien empuja a Ciudad Gótica hacia la anarquía y fuerza al Caballero Oscuro a estar más cerca de cruzar la delgada línea entre héroe y vigilante."
-        app:layout_constraintTop_toBottomOf="@+id/tvPeliculaSinopsisTexto" />
+        android:layout_marginVertical="25sp"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        app:layout_constraintTop_toBottomOf="@+id/ivDescripcionPelicula"
+        tools:text="Con la ayuda del teniente James Gordon y el Fiscal de Distrito Harvey Dent, Batman se propone destruir la delincuencia organizada para el bien de Ciudad Gótica. El trío demuestra ser eficaz, pero pronto se ve presa de una creciente mente criminal: conocido como el Guasón, quien empuja a Ciudad Gótica hacia la anarquía y fuerza al Caballero Oscuro a estar más cerca de cruzar la delgada línea entre héroe y vigilante." />
 
     <ProgressBar
         android:id="@+id/progressBarDescripcion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"/>
-
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

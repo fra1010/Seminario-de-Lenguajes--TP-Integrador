@@ -31,25 +31,45 @@
             android:id="@+id/tvPeliculaNombre"
             android:layout_width="280sp"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="3sp"
+            android:layout_marginHorizontal="8sp"
             android:textSize="17sp"
             android:textStyle="bold"
+            android:gravity="fill"
             app:layout_constraintStart_toEndOf="@+id/ivPelicula"
             app:layout_constraintTop_toTopOf="parent"
             android:textColor="@color/white"
-            android:minLines="2"
+            android:minLines="3"
             tools:text="El Señor de los Anillos: La Comunidad del Anillo" />
+
 
         <TextView
             android:id="@+id/tvPeliculaAño"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             tools:text="Año"
+            android:gravity="center"
+            android:drawableStart="@drawable/ic_round_calendar_today_24"
+            android:drawablePadding="5sp"
             android:textColor="@color/white"
-            android:layout_marginHorizontal="3sp"
-            android:layout_marginVertical="8sp"
+            android:layout_marginHorizontal="8sp"
+            android:layout_marginVertical="5sp"
             app:layout_constraintTop_toBottomOf="@+id/tvPeliculaNombre"
             app:layout_constraintStart_toEndOf="@+id/ivPelicula"/>
+
+        <TextView
+            android:id="@+id/tvPeliculaRating"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="9.9"
+            android:gravity="center"
+            android:drawableStart="@drawable/baseline_star_24"
+            android:drawablePadding="5sp"
+            android:textColor="@color/white"
+            android:layout_marginHorizontal="8sp"
+            android:layout_marginVertical="5sp"
+            app:layout_constraintTop_toBottomOf="@+id/tvPeliculaAño"
+            app:layout_constraintStart_toEndOf="@+id/ivPelicula"/>
+
 
 
 

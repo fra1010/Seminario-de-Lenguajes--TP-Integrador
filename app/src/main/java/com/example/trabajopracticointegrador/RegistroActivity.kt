@@ -15,7 +15,6 @@ class RegistroActivity : AppCompatActivity() {
     private lateinit var etContraseniaR: EditText
     private lateinit var chTerminos: CheckBox
     private lateinit var btnRegistroR:Button
-    private lateinit var cbRecordar: CheckBox
 
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -26,7 +25,6 @@ class RegistroActivity : AppCompatActivity() {
         etContraseniaR=findViewById(R.id.etContraseñaRegistro)
         chTerminos=findViewById(R.id.cbTerminos)
         btnRegistroR=findViewById(R.id.btnRegistrar)
-        cbRecordar=findViewById(R.id.cbRecordar)
 
         btnRegistroR.setOnClickListener {
             var usuario= etUsuarioR.text.toString()
@@ -40,16 +38,8 @@ class RegistroActivity : AppCompatActivity() {
                     var nuevoUsuario= Usuario(usuario,contrasenia)
                     UserDatabase.getDatabase(this).userDao().insertUsuario(nuevoUsuario)
 
-                    if (cbRecordar.isChecked) {
-                        var preferencias= getSharedPreferences(resources.getString((R.string.sp_credenciales)), MODE_PRIVATE)
-                        preferencias.edit().putString(resources.getString(R.string.usuario), usuario).apply()
-                        preferencias.edit().putString(resources.getString(R.string.contrasenia), contrasenia).apply()
-
-                    }
-
-                    val intentMain = Intent(this, MainActivity::class.java)
-                    intentMain.putExtra(resources.getString(R.string.usuario),usuario)
-                    startActivity(intentMain)
+                    val intentLogin = Intent(this, LoginActivity::class.java)
+                    startActivity(intentLogin)
                     finish()
                 }
             }

@@ -1,14 +1,28 @@
 package com.example.trabajopracticointegrador
 
+import android.Manifest
+import android.app.NotificationChannel
+import android.app.NotificationManager
+import android.app.PendingIntent
+import android.app.TaskStackBuilder
 import android.content.Intent
+import android.content.pm.PackageManager
+import android.graphics.Color
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.CheckBox
 import android.widget.EditText
 import android.widget.Toast
+import androidx.core.app.ActivityCompat
+import androidx.core.app.NotificationCompat
+import androidx.core.app.NotificationManagerCompat
 
 class LoginActivity : AppCompatActivity() {
+    val CHANNEL_ID = "NotifApi"
+    val CHANNEL_NAME= "Notificacion recordar usuario"
+    val NOTIF_ID=0
 
     private lateinit var etUsuario: EditText
     private lateinit var etContrasenia: EditText
@@ -21,11 +35,29 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
+        createNotifChannel()
+        val intent=Intent(this, MainActivity::class.java)
+        val pendingIntent = TaskStackBuilder.create(this).run {
+            addNextIntentWithParentStack(intent)
+            getPendingIntent(0,PendingIntent.FLAG_UPDATE_CURRENT)
+        }
+        val notif = NotificationCompat.Builder(this, CHANNEL_ID)
+            .setContentTitle("Se activó la opcion recordar usuario")
+            .setPriority(NotificationCompat.PRIORITY_HIGH)
+            .setSmallIcon(R.drawable.baseline_account_circle_24)
+            .setContentIntent(pendingIntent)
+            .build()
+
+        val notifMan = NotificationManagerCompat.from(this)
+
+
+
         etUsuario=findViewById(R.id.etUsuario)
         etContrasenia=findViewById(R.id.etContraseña)
         btnRegistro=findViewById(R.id.btnRegistro)
         btnLogin=findViewById(R.id.btnLogin)
         cbRecordar=findViewById(R.id.cbLogin)
+
 
         var preferencias = getSharedPreferences(resources.getString((R.string.sp_credenciales)), MODE_PRIVATE)
         var usuarioGuardado = preferencias.getString(resources.getString(R.string.usuario), "")
@@ -68,7 +100,15 @@ class LoginActivity : AppCompatActivity() {
                                 var preferenciasL= getSharedPreferences(resources.getString((R.string.sp_credenciales)), MODE_PRIVATE)
                                 preferenciasL.edit().putString(resources.getString(R.string.usuario), nUsuario).apply()
                                 preferenciasL.edit().putString(resources.getString(R.string.contrasenia), pUsuario).apply()
+                                if (ActivityCompat.checkSelfPermission(
+                                        this,
+                                        Manifest.permission.POST_NOTIFICATIONS
+                                    ) != PackageManager.PERMISSION_GRANTED
+                                )
+
+                                notifMan.notify(NOTIF_ID,notif)
                             }
+
                             starMainActivity(nUsuario)
 
                         }
@@ -80,8 +120,20 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
+    private fun createNotifChannel() {
+        if(Build.VERSION.SDK_INT>= Build.VERSION_CODES.O){
+            val channel = NotificationChannel(CHANNEL_ID,CHANNEL_NAME, NotificationManager.IMPORTANCE_DEFAULT).apply {
+                lightColor= Color.BLUE
+                enableLights(true)
+            }
+            val manager= getSystemService(NOTIFICATION_SERVICE) as NotificationManager
+            manager.createNotificationChannel(channel)
+        }
+    }
 
-    private fun getUsuario(): MutableList<Usuario> {
+
+
+    /*private fun getUsuario(): MutableList<Usuario> {
 
         var usuarioLista: MutableList<Usuario> = ArrayList()
         var ubdd= UserDatabase.getDatabase(this)
@@ -90,7 +142,7 @@ class LoginActivity : AppCompatActivity() {
         usuarioLista.add(Usuario("asdf","1234"))
 
         return usuarioLista
-    }
+    }*/
 
 
 

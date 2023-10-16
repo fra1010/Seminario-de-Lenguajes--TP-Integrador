@@ -13,6 +13,7 @@ data class MoviesListResponse(
     @SerializedName("total_results")
     val totalResults: Int // 684341
 ) {
+
     data class Result(
         @SerializedName("adult")
         val adult: Boolean, // false

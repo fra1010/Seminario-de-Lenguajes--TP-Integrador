@@ -22,6 +22,7 @@ class MoviesAdapter : RecyclerView.Adapter<MoviesAdapter.ViewHolder>() {
     private lateinit var binding: ItemPeliculaBinding
     private lateinit var context: Context
 
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val inflater = LayoutInflater.from(parent.context)
         binding = ItemPeliculaBinding.inflate(inflater, parent, false)
@@ -48,6 +49,7 @@ class MoviesAdapter : RecyclerView.Adapter<MoviesAdapter.ViewHolder>() {
             binding.apply {
                 tvPeliculaNombre.text = item.title
                 tvPeliculaAO.text = item.releaseDate
+                tvPeliculaRating.text = item.voteAverage.toString()
 
                 val moviePosterURL = POSTER_BASE_URL + item?.posterPath
                 ivPelicula.load(moviePosterURL){
@@ -61,10 +63,9 @@ class MoviesAdapter : RecyclerView.Adapter<MoviesAdapter.ViewHolder>() {
                     val intent = Intent(context, DescripcionActivity::class.java)
                     intent.putExtra("id", item?.id)
                     context.startActivity(intent)
+
                 }
             }
-
-
 
 
         }

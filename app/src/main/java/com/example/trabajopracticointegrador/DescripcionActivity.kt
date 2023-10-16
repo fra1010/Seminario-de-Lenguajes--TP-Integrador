@@ -29,17 +29,22 @@ class DescripcionActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityDescripcionBinding.inflate(layoutInflater)
+
         setContentView(binding.root)
         val movieId: Int = intent.getIntExtra("id", 1)
+
         binding.apply {
             //mostrar cargando
             progressBarDescripcion.visibility = View.VISIBLE
             //llamar a la api de peliculas
             val callMoviesApi = api.getMovieDetails(movieId)
+
             callMoviesApi.enqueue(object : Callback<DetailMovieResponse> {
                 override fun onResponse(call: Call<DetailMovieResponse>, response: Response<DetailMovieResponse>) {
                     Log.e("onFailure", "Err : ${response.code()}")
+
                     progressBarDescripcion.visibility = View.GONE
+
                     when (response.code()) {
                         in 200..299 -> {
 
@@ -66,8 +71,9 @@ class DescripcionActivity : AppCompatActivity() {
                                 tvDescripcionAO.text = itBody.releaseDate
                                 tvRating.text = itBody.voteAverage.toString()
                                 //tvPresupuesto.text = itBody.budget.toString()
-                                tvRecaudacion.text = itBody.revenue.toString()
+                                tvRecaudacion.text = "%,d".format(itBody.revenue)
                                 tvDescripcionSinopsis.text = itBody.overview
+                                tvDescripcionDuracion.text= itBody.runtime.toString()
                             }
                         }
 
