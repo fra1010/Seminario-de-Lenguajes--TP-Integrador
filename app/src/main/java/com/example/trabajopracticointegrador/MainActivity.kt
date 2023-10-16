@@ -49,8 +49,6 @@ class MainActivity : AppCompatActivity() {
         supportActionBar!!.title = resources.getString(R.string.toolbar_texto)
 
 
-
-
         lifecycleScope.launch {//corutina
 
             binding.apply {
