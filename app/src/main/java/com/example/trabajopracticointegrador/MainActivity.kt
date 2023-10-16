@@ -125,7 +125,7 @@ class MainActivity : AppCompatActivity() {
             var preferencias =
                 getSharedPreferences(resources.getString((R.string.sp_credenciales)), MODE_PRIVATE)
             preferencias.edit().clear().apply()
-            Toast.makeText(this, "Se dejó de recordar el usuario",Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Se dejó de recordar el usuario",Toast.LENGTH_LONG).show()
         }
         return super.onOptionsItemSelected(item)
 

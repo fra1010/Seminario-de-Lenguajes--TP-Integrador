@@ -84,19 +84,9 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/circle_gradient" />
+                    app:srcCompat="@drawable/illustration2" />
 
-                <com.google.android.material.imageview.ShapeableImageView
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
-                    android:layout_margin="9dp"
-                    app:layout_constraintBottom_toBottomOf="@+id/imageView3"
-                    app:layout_constraintEnd_toEndOf="@+id/imageView3"
-                    app:layout_constraintStart_toStartOf="@+id/imageView3"
-                    app:layout_constraintTop_toTopOf="@+id/imageView3"
-                    app:shapeAppearanceOverlay="@style/roundedImage"
-                    app:srcCompat="@drawable/logo"
-                    app:strokeWidth="1dp" />
+
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
